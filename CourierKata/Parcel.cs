@@ -14,7 +14,7 @@ namespace CourierKata
         /// <param name="weight">Weight of the parcel in kg</param>
         public Parcel(double dimensions, double weight)
         {
-            this.parcelType = this.CalculateParcelType(dimensions);
+            this.parcelType = this.CalculateParcelType(dimensions, weight);
             this.weight = weight;
         }
 
@@ -23,8 +23,14 @@ namespace CourierKata
             return new ParcelCost(parcelType, weight);
         }
 
-        private ParcelType CalculateParcelType(double dimensions)
+        private ParcelType CalculateParcelType(double dimensions, double weight)
         {
+            //Requirements did not specify what classifies as "heavy", therefore I will currently assume more than or equal to 20kg
+            if (weight >= 20)
+            {
+                return ParcelType.Heavy;
+            }
+
             if (dimensions < 10)
             {
                 return ParcelType.Small;

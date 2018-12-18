@@ -8,6 +8,7 @@ namespace CourierKata
         private const double mediumParcelWeightLimit = 3;
         private const double largeParcelWeightLimit = 6;
         private const double xlParcelWeightLimit = 10;
+        private const double heavyParcelWeightLimit = 50;
 
         private readonly decimal overweightCharge;
         private decimal cost;
@@ -38,6 +39,8 @@ namespace CourierKata
                     return 15;
                 case ParcelType.XL:
                     return 25;
+                case ParcelType.Heavy:
+                    return 50;
                 default:
                     throw new Exception($"Unable to determine cost for Parcel Type: {parcelType}");
             }
@@ -62,6 +65,10 @@ namespace CourierKata
                 case ParcelType.XL:
                     return weight > xlParcelWeightLimit
                         ? (decimal)(weight - xlParcelWeightLimit) * 2
+                        : 0;
+                case ParcelType.Heavy:
+                    return weight > heavyParcelWeightLimit
+                        ? (decimal)(weight - heavyParcelWeightLimit) * 1
                         : 0;
                 default:
                     throw new Exception($"Unable to determine overweight charge of Parcel Type: {parcelType}");

@@ -239,7 +239,7 @@ namespace CourierKata.Tests
         {
             //Arrange
             var parcel = new Parcel(125, weight);
-            var heavyParcelCost = 25;
+            var heavyParcelCost = 50;
             var expectedCost = heavyParcelCost + overweightCharge;
 
             //Act
