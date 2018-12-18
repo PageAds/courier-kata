@@ -123,5 +123,61 @@ namespace CourierKata.Tests
             Assert.Equal(25, parcelCost.Cost);
             Assert.Equal(50, parcelCost.SpeedyShippingCost);
         }
+
+        [Theory]
+        [InlineData(1, 0)]
+        [InlineData(2, 2)]
+        [InlineData(2.5, 3)]
+        [InlineData(4, 4)]
+        public void CalculateCost_SmallParcelIsOverweight_OverweightChargeIsAddedToCostAndReturned(double weight, decimal overweightCharge)
+        {
+            //Arrange
+
+            //Act
+
+            //Assert
+        }
+
+        [Theory]
+        [InlineData(3, 0)]
+        [InlineData(4, 2)]
+        [InlineData(4.5, 3)]
+        [InlineData(6, 4)]
+        public void CalculateCost_MediumParcelIsOverweight_OverweightChargeIsAddedToCostAndReturned(double weight, decimal overweightCharge)
+        {
+            //Arrange
+
+            //Act
+
+            //Assert
+        }
+
+        [Theory]
+        [InlineData(6, 0)]
+        [InlineData(7, 2)]
+        [InlineData(7.5, 3)]
+        [InlineData(9, 4)]
+        public void CalculateCost_LargeParcelIsOverweight_OverweightChargeIsAddedToCostAndReturned(double weight, decimal overweightCharge)
+        {
+            //Arrange
+
+            //Act
+
+            //Assert
+        }
+
+        [Theory]
+        [InlineData(10, 0)]
+        [InlineData(11, 2)]
+        [InlineData(11.5, 3)]
+        [InlineData(13, 4)]
+        public void CalculateCost_XLParcelIsOverweight_OverweightChargeIsAddedToCostAndReturned(double weight, decimal overweightCharge)
+        {
+            //Arrange
+
+            //Act
+
+            //Assert
+        }
     }
 }
