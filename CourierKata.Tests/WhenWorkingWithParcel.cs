@@ -14,10 +14,10 @@ namespace CourierKata.Tests
             var parcel = new Parcel(dimensions);
 
             //Act
-            var cost = parcel.CalculateCost();
+            var parcelCost = parcel.CalculateCost();
 
             //Assert
-            Assert.Equal(3, cost);
+            Assert.Equal(3, parcelCost.Cost);
         }
 
         [Theory]
@@ -30,10 +30,10 @@ namespace CourierKata.Tests
             var parcel = new Parcel(dimensions);
 
             //Act
-            var cost = parcel.CalculateCost();
+            var parcelCost = parcel.CalculateCost();
 
             //Assert
-            Assert.Equal(8, cost);
+            Assert.Equal(8, parcelCost.Cost);
         }
 
         [Theory]
@@ -46,10 +46,10 @@ namespace CourierKata.Tests
             var parcel = new Parcel(dimensions);
 
             //Act
-            var cost = parcel.CalculateCost();
+            var parcelCost = parcel.CalculateCost();
 
             //Assert
-            Assert.Equal(15, cost);
+            Assert.Equal(15, parcelCost.Cost);
         }
 
         [Theory]
@@ -62,10 +62,10 @@ namespace CourierKata.Tests
             var parcel = new Parcel(dimensions);
 
             //Act
-            var cost = parcel.CalculateCost();
+            var parcelCost = parcel.CalculateCost();
 
             //Assert
-            Assert.Equal(25, cost);
+            Assert.Equal(25, parcelCost.Cost);
         }
 
         [Fact]
@@ -75,10 +75,11 @@ namespace CourierKata.Tests
             var parcel = new Parcel(5);
 
             //Act
-            var cost = parcel.CalculateCost();
+            var parcelCost = parcel.CalculateCost();
 
             //Assert
-            Assert.Equal(6, cost);
+            Assert.Equal(3, parcelCost.Cost);
+            Assert.Equal(6, parcelCost.SpeedyShippingCost);
         }
 
         [Fact]
@@ -88,10 +89,11 @@ namespace CourierKata.Tests
             var parcel = new Parcel(25);
 
             //Act
-            var cost = parcel.CalculateCost();
+            var parcelCost = parcel.CalculateCost();
 
             //Assert
-            Assert.Equal(16, cost);
+            Assert.Equal(8, parcelCost.Cost);
+            Assert.Equal(16, parcelCost.SpeedyShippingCost);
         }
 
         [Fact]
@@ -101,10 +103,11 @@ namespace CourierKata.Tests
             var parcel = new Parcel(75);
 
             //Act
-            var cost = parcel.CalculateCost();
+            var parcelCost = parcel.CalculateCost();
 
             //Assert
-            Assert.Equal(30, cost);
+            Assert.Equal(15, parcelCost.Cost);
+            Assert.Equal(30, parcelCost.SpeedyShippingCost);
         }
 
         [Fact]
@@ -114,10 +117,11 @@ namespace CourierKata.Tests
             var parcel = new Parcel(125);
 
             //Act
-            var cost = parcel.CalculateCost();
+            var parcelCost = parcel.CalculateCost();
 
             //Assert
-            Assert.Equal(50, cost);
+            Assert.Equal(25, parcelCost.Cost);
+            Assert.Equal(50, parcelCost.SpeedyShippingCost);
         }
     }
 }

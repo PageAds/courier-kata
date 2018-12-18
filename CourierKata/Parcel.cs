@@ -15,21 +15,20 @@ namespace CourierKata
             parcelType = this.CalculateParcelType(dimensions);
         }
 
-        public decimal CalculateCost()
+        public ParcelCost CalculateCost()
         {
             switch (parcelType)
             {
                 case ParcelType.Small:
-                    return 3;
+                    return new ParcelCost { Cost = 3 };
                 case ParcelType.Medium:
-                    return 8;
+                    return new ParcelCost { Cost = 8 };
                 case ParcelType.Large:
-                    return 15;
+                    return new ParcelCost { Cost = 15 };
                 case ParcelType.XL:
-                    return 25;
+                    return new ParcelCost { Cost = 25 };
                 default:
                     throw new Exception($"Unable to determine cost for Parcel Type: {parcelType}");
-
             }
         }
 
