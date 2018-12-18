@@ -4,44 +4,68 @@ namespace CourierKata.Tests
 {
     public class WhenWorkingWithCourierKata
     {
-        [Fact]
-        public void CalculateCost_SmallParcel_3DollarsIsReturned()
+        [Theory]
+        [InlineData(1)]
+        [InlineData(5)]
+        [InlineData(9)]
+        public void CalculateCost_SmallParcel_3DollarsIsReturned(double dimensions)
         {
             //Arrange
+            var parcel = new Parcel(dimensions);
 
             //Act
+            var cost = parcel.CalculateCost();
 
             //Assert
+            Assert.Equal(3, cost);
         }
 
-        [Fact]
-        public void CalculateCost_MediumParcel_8DollarsIsReturned()
+        [Theory]
+        [InlineData(10)]
+        [InlineData(25)]
+        [InlineData(49)]
+        public void CalculateCost_MediumParcel_8DollarsIsReturned(double dimensions)
         {
             //Arrange
+            var parcel = new Parcel(dimensions);
 
             //Act
+            var cost = parcel.CalculateCost();
 
             //Assert
+            Assert.Equal(8, cost);
         }
 
-        [Fact]
-        public void CalculateCost_LargeParcel_15DollarsIsReturned()
+        [Theory]
+        [InlineData(50)]
+        [InlineData(75)]
+        [InlineData(99)]
+        public void CalculateCost_LargeParcel_15DollarsIsReturned(double dimensions)
         {
             //Arrange
+            var parcel = new Parcel(dimensions);
 
             //Act
+            var cost = parcel.CalculateCost();
 
             //Assert
+            Assert.Equal(15, cost);
         }
 
-        [Fact]
-        public void CalculateCost_XLParcel_25DollarsIsReturned()
+        [Theory]
+        [InlineData(100)]
+        [InlineData(125)]
+        [InlineData(150)]
+        public void CalculateCost_XLParcel_25DollarsIsReturned(double dimensions)
         {
             //Arrange
+            var parcel = new Parcel(dimensions);
 
             //Act
+            var cost = parcel.CalculateCost();
 
             //Assert
+            Assert.Equal(25, cost);
         }
     }
 }
