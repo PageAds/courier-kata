@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CourierKata
+﻿namespace CourierKata
 {
     public class Class1
     {
