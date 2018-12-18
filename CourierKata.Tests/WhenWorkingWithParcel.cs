@@ -72,40 +72,52 @@ namespace CourierKata.Tests
         public void CalculateCost_SmallParcelWithSpeedyShipping_6DollarsIsReturned()
         {
             //Arrange
+            var parcel = new Parcel(5);
 
             //Act
+            var cost = parcel.CalculateCost();
 
             //Assert
+            Assert.Equal(6, cost);
         }
 
         [Fact]
         public void CalculateCost_MediumParcelWithSpeedyShipping_16DollarsIsReturned()
         {
             //Arrange
+            var parcel = new Parcel(25);
 
             //Act
+            var cost = parcel.CalculateCost();
 
             //Assert
+            Assert.Equal(16, cost);
         }
 
         [Fact]
         public void CalculateCost_LargeParcelWithSpeedyShipping_30DollarsIsReturned()
         {
             //Arrange
+            var parcel = new Parcel(75);
 
             //Act
+            var cost = parcel.CalculateCost();
 
             //Assert
+            Assert.Equal(30, cost);
         }
 
         [Fact]
         public void CalculateCost_XLParcelWithSpeedyShipping_50DollarsIsReturned()
         {
             //Arrange
+            var parcel = new Parcel(125);
 
             //Act
+            var cost = parcel.CalculateCost();
 
             //Assert
+            Assert.Equal(50, cost);
         }
     }
 }
