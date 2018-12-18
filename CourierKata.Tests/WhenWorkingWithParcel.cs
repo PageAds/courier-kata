@@ -68,6 +68,19 @@ namespace CourierKata.Tests
             Assert.Equal(25, parcelCost.Cost);
         }
 
+        [Theory]
+        [InlineData(100)]
+        [InlineData(125)]
+        [InlineData(150)]
+        public void CalculateCost_HeavyParcel_50DollarsIsReturned(double dimensions)
+        {
+            //Arrange
+
+            //Act
+
+            //Assert
+        }
+
         [Fact]
         public void CalculateCost_SmallParcelWithSpeedyShipping_6DollarsIsReturned()
         {
@@ -122,6 +135,16 @@ namespace CourierKata.Tests
             //Assert
             Assert.Equal(25, parcelCost.Cost);
             Assert.Equal(50, parcelCost.SpeedyShippingCost);
+        }
+
+        [Fact]
+        public void CalculateCost_HeavyParcelWithSpeedyShipping_100DollarsIsReturned()
+        {
+            //Arrange
+
+            //Act
+
+            //Assert
         }
 
         [Theory]
@@ -198,6 +221,20 @@ namespace CourierKata.Tests
 
             //Assert
             Assert.Equal(expectedCost, parcelCost.Cost);
+        }
+
+        [Theory]
+        [InlineData(50, 0)]
+        [InlineData(51, 1)]
+        [InlineData(51.5, 1.5)]
+        [InlineData(53, 3)]
+        public void CalculateCost_HeavyParcelIsOverweight_OverweightChargeIsAddedToCostAndReturned(double weight, decimal overweightCharge)
+        {
+            //Arrange
+
+            //Act
+
+            //Assert
         }
     }
 }
