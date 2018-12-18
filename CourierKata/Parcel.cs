@@ -5,6 +5,7 @@ namespace CourierKata
     public class Parcel
     {
         private ParcelType parcelType;
+        private readonly double weight;
 
         /// <summary>
         /// A parcel
@@ -13,24 +14,13 @@ namespace CourierKata
         /// <param name="weight">Weight of the parcel in kg</param>
         public Parcel(double dimensions, double weight)
         {
-            parcelType = this.CalculateParcelType(dimensions);
+            this.parcelType = this.CalculateParcelType(dimensions);
+            this.weight = weight;
         }
 
         public ParcelCost CalculateCost()
         {
-            switch (parcelType)
-            {
-                case ParcelType.Small:
-                    return new ParcelCost { Cost = 3 };
-                case ParcelType.Medium:
-                    return new ParcelCost { Cost = 8 };
-                case ParcelType.Large:
-                    return new ParcelCost { Cost = 15 };
-                case ParcelType.XL:
-                    return new ParcelCost { Cost = 25 };
-                default:
-                    throw new Exception($"Unable to determine cost for Parcel Type: {parcelType}");
-            }
+            return new ParcelCost(parcelType, weight);
         }
 
         private ParcelType CalculateParcelType(double dimensions)
