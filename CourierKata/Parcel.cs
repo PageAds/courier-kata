@@ -10,7 +10,8 @@ namespace CourierKata
         /// A parcel
         /// </summary>
         /// <param name="dimensions">Total size of all dimensions of the parcel in cm</param>
-        public Parcel(double dimensions)
+        /// <param name="weight">Weight of the parcel in kg</param>
+        public Parcel(double dimensions, double weight)
         {
             parcelType = this.CalculateParcelType(dimensions);
         }

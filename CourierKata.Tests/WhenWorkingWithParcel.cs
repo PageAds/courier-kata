@@ -11,7 +11,7 @@ namespace CourierKata.Tests
         public void CalculateCost_SmallParcel_3DollarsIsReturned(double dimensions)
         {
             //Arrange
-            var parcel = new Parcel(dimensions);
+            var parcel = new Parcel(dimensions, 1);
 
             //Act
             var parcelCost = parcel.CalculateCost();
@@ -27,7 +27,7 @@ namespace CourierKata.Tests
         public void CalculateCost_MediumParcel_8DollarsIsReturned(double dimensions)
         {
             //Arrange
-            var parcel = new Parcel(dimensions);
+            var parcel = new Parcel(dimensions, 3);
 
             //Act
             var parcelCost = parcel.CalculateCost();
@@ -43,7 +43,7 @@ namespace CourierKata.Tests
         public void CalculateCost_LargeParcel_15DollarsIsReturned(double dimensions)
         {
             //Arrange
-            var parcel = new Parcel(dimensions);
+            var parcel = new Parcel(dimensions, 6);
 
             //Act
             var parcelCost = parcel.CalculateCost();
@@ -59,7 +59,7 @@ namespace CourierKata.Tests
         public void CalculateCost_XLParcel_25DollarsIsReturned(double dimensions)
         {
             //Arrange
-            var parcel = new Parcel(dimensions);
+            var parcel = new Parcel(dimensions, 10);
 
             //Act
             var parcelCost = parcel.CalculateCost();
@@ -72,7 +72,7 @@ namespace CourierKata.Tests
         public void CalculateCost_SmallParcelWithSpeedyShipping_6DollarsIsReturned()
         {
             //Arrange
-            var parcel = new Parcel(5);
+            var parcel = new Parcel(5, 1);
 
             //Act
             var parcelCost = parcel.CalculateCost();
@@ -86,7 +86,7 @@ namespace CourierKata.Tests
         public void CalculateCost_MediumParcelWithSpeedyShipping_16DollarsIsReturned()
         {
             //Arrange
-            var parcel = new Parcel(25);
+            var parcel = new Parcel(25, 3);
 
             //Act
             var parcelCost = parcel.CalculateCost();
@@ -100,7 +100,7 @@ namespace CourierKata.Tests
         public void CalculateCost_LargeParcelWithSpeedyShipping_30DollarsIsReturned()
         {
             //Arrange
-            var parcel = new Parcel(75);
+            var parcel = new Parcel(75, 6);
 
             //Act
             var parcelCost = parcel.CalculateCost();
@@ -114,7 +114,7 @@ namespace CourierKata.Tests
         public void CalculateCost_XLParcelWithSpeedyShipping_50DollarsIsReturned()
         {
             //Arrange
-            var parcel = new Parcel(125);
+            var parcel = new Parcel(125, 10);
 
             //Act
             var parcelCost = parcel.CalculateCost();
@@ -132,10 +132,15 @@ namespace CourierKata.Tests
         public void CalculateCost_SmallParcelIsOverweight_OverweightChargeIsAddedToCostAndReturned(double weight, decimal overweightCharge)
         {
             //Arrange
+            var parcel = new Parcel(5, weight);
+            var smallParcelCost = 3;
+            var expectedCost = smallParcelCost + overweightCharge;
 
             //Act
+            var parcelCost = parcel.CalculateCost();
 
             //Assert
+            Assert.Equal(expectedCost, parcelCost.Cost);
         }
 
         [Theory]
@@ -146,10 +151,15 @@ namespace CourierKata.Tests
         public void CalculateCost_MediumParcelIsOverweight_OverweightChargeIsAddedToCostAndReturned(double weight, decimal overweightCharge)
         {
             //Arrange
+            var parcel = new Parcel(25, weight);
+            var mediumParcelCost = 8;
+            var expectedCost = mediumParcelCost + overweightCharge;
 
             //Act
+            var parcelCost = parcel.CalculateCost();
 
             //Assert
+            Assert.Equal(expectedCost, parcelCost.Cost);
         }
 
         [Theory]
@@ -160,10 +170,15 @@ namespace CourierKata.Tests
         public void CalculateCost_LargeParcelIsOverweight_OverweightChargeIsAddedToCostAndReturned(double weight, decimal overweightCharge)
         {
             //Arrange
+            var parcel = new Parcel(75, weight);
+            var largeParcelCost = 15;
+            var expectedCost = largeParcelCost + overweightCharge;
 
             //Act
+            var parcelCost = parcel.CalculateCost();
 
             //Assert
+            Assert.Equal(expectedCost, parcelCost.Cost);
         }
 
         [Theory]
@@ -174,10 +189,15 @@ namespace CourierKata.Tests
         public void CalculateCost_XLParcelIsOverweight_OverweightChargeIsAddedToCostAndReturned(double weight, decimal overweightCharge)
         {
             //Arrange
+            var parcel = new Parcel(125, weight);
+            var xlParcelCost = 25;
+            var expectedCost = xlParcelCost + overweightCharge;
 
             //Act
+            var parcelCost = parcel.CalculateCost();
 
             //Assert
+            Assert.Equal(expectedCost, parcelCost.Cost);
         }
     }
 }
