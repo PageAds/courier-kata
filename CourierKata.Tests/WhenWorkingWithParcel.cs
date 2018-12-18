@@ -2,7 +2,7 @@
 
 namespace CourierKata.Tests
 {
-    public class WhenWorkingWithCourierKata
+    public class WhenWorkingWithParcel
     {
         [Theory]
         [InlineData(1)]
@@ -66,6 +66,46 @@ namespace CourierKata.Tests
 
             //Assert
             Assert.Equal(25, cost);
+        }
+
+        [Fact]
+        public void CalculateCost_SmallParcelWithSpeedyShipping_6DollarsIsReturned()
+        {
+            //Arrange
+
+            //Act
+
+            //Assert
+        }
+
+        [Fact]
+        public void CalculateCost_MediumParcelWithSpeedyShipping_16DollarsIsReturned()
+        {
+            //Arrange
+
+            //Act
+
+            //Assert
+        }
+
+        [Fact]
+        public void CalculateCost_LargeParcelWithSpeedyShipping_30DollarsIsReturned()
+        {
+            //Arrange
+
+            //Act
+
+            //Assert
+        }
+
+        [Fact]
+        public void CalculateCost_XLParcelWithSpeedyShipping_50DollarsIsReturned()
+        {
+            //Arrange
+
+            //Act
+
+            //Assert
         }
     }
 }
